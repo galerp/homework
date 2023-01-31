@@ -17,7 +17,7 @@ class LinearRegression:
         Linear Regresssion model fitting
 
         Args:
-            X (np.ndarray): Input training data 
+            X (np.ndarray): Input training data.
             y (np.ndarray): Input training output.
         """
         # Check if array has a determinant
