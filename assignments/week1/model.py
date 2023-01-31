@@ -111,8 +111,8 @@ class GradientDescentLinearRegression(LinearRegression):
         for e in range(epochs):
             # Fit the model to the training data:
             yhat = X_train @ w + b
-            l = self._squared_error(yhat, y_train).mean()
-            l.backward()
+            l_loss = self._squared_error(yhat, y_train).mean()
+            l_loss.backward()
 
             w, b = self._gradient_descent(w, b, lr)
         self.w = w
