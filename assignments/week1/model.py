@@ -14,12 +14,13 @@ class LinearRegression:
 
     def fit(self, X: np.ndarray, y: np.ndarray) -> None:
         """
-        Linear Regresssion fitting
+        Linear Regresssion model fitting
 
         Args:
             X (np.ndarray): Input training data 
-            y (np.ndarray): Input training output
+            y (np.ndarray): Input training output.
         """
+        # Check if array has a determinant
         if np.linalg.det(X.T @ X)!=0:
             X_train_append= np.hstack((X, np.ones((X.shape[0],1))))
             wb = np.linalg.inv(X_train_append.T@X_train_append)@X_train_append.T@y
@@ -32,10 +33,12 @@ class LinearRegression:
 
     def predict(self, X:np.ndarray) -> np.ndarray:
         """
-        Predicts out out put using previously calculated weights using linear regression
+        Predicts out out put using previously calculated weights using linear regression.
 
         Args:
-            X (np.ndarray): Input data to predict
+            X (np.ndarray): Input data to predict.
+        Returns:
+            prediction (np.ndarray): Predicted values.
         """        
         prediction = X @ self.w + self.b
 
@@ -51,17 +54,12 @@ class GradientDescentLinearRegression(LinearRegression):
         '''
         Squared error loss function.
         
-        Parameters
-        ----------
-        y_hat : torch.tensor
-            predicted values.
-        y : torch.tensor
-            true values.
+        Args:
+            y_hat (torch.tensor): Predicted values.
+            y (torch.tensor): True values.
         
-        Returns
-        -------
-        err: FLOAT
-            the squared error (loss)
+        Returns:
+            err (FLOAT): The squared error (loss).
         
         '''
         err = (yhat - y.reshape(yhat.shape)) ** 2
@@ -69,19 +67,14 @@ class GradientDescentLinearRegression(LinearRegression):
     
     def _gradient_descent(self, w, b, lr):
         '''
-        gradient_descent algorithm.
+        Gradient_descent algorithm.
         
-        Parameters
-        ----------
-        w : torch.tensor
-            weights.
-        b : torch.tensor
-            bias.
-        lr : FLOAT
-            learning rate.
+        Args:
+            w (torch.tensor): Model weights.
+            b : torch.tensor: Bias.
+            lr (FLOAT): learning rate.
         
-        Returns
-        -------
+        Returns:
         w, b.
         
         '''
@@ -99,7 +92,7 @@ class GradientDescentLinearRegression(LinearRegression):
         self, X: np.ndarray, y: np.ndarray, lr: float = 0.01, epochs: int = 1000
     ) -> None:
         """
-        Gradient descent fitting of weights
+        Gradient descent fitting of weights.
 
         Args:
             X (np.ndarray): _description_
@@ -134,7 +127,7 @@ class GradientDescentLinearRegression(LinearRegression):
             X (np.ndarray): The input data.
 
         Returns:
-            np.ndarray: The predicted output.
+            pred_np (np.ndarray): The predicted output.
 
         """
 
