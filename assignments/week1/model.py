@@ -1,8 +1,10 @@
 import numpy as np
 import torch
 
+
 class LinearRegression:
-    """ Linear Regression model from scratch
+    """
+    Linear Regression model from scratch
     """
 
     w: np.ndarray
@@ -21,9 +23,9 @@ class LinearRegression:
             y (np.ndarray): Input training output.
         """
         # Check if array has a determinant
-        if np.linalg.det(X.T @ X)!=0:
-            X_train_append= np.hstack((X, np.ones((X.shape[0],1))))
-            wb = np.linalg.inv(X_train_append.T@X_train_append)@X_train_append.T@y
+        if np.linalg.det(X.T @ X) != 0:
+            X_train_append = np.hstack((X, np.ones((X.shape[0],1))))
+            wb = np.linalg.inv(X_train_append.T @ X_train_append) @ X_train_append.T @ y
             
             self.w = wb[:-1]
             self.b = wb[-1]
@@ -42,13 +44,12 @@ class LinearRegression:
         """        
         prediction = X @ self.w + self.b
 
-        return(prediction)
+        return prediction
 
 class GradientDescentLinearRegression(LinearRegression):
     """
     A linear regression model that uses gradient descent to fit the model.
     """
-
 
     def _squared_error(self, yhat, y):
         '''
@@ -87,7 +88,6 @@ class GradientDescentLinearRegression(LinearRegression):
 
         return (w, b)
 
-
     def fit(
         self, X: np.ndarray, y: np.ndarray, lr: float = 0.01, epochs: int = 1000
     ) -> None:
@@ -116,8 +116,6 @@ class GradientDescentLinearRegression(LinearRegression):
             w, b = self._gradient_descent(w, b, lr)
         self.w = w
         self.b = b
-
-        # raise NotImplementedError()
 
     def predict(self, X: np.ndarray) -> np.ndarray:
         """

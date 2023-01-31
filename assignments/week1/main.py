@@ -11,16 +11,13 @@ def get_housing_data() -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     """
     Get the California housing data from sklearn.
     (https://scikit-learn.org/stable/modules/generated/sklearn.datasets.fetch_california_housing.html)
-
     Arguments:
         None
-
     Returns:
         X_train (np.ndarray): The training input data.
         X_test (np.ndarray): The test input data.
         y_train (np.ndarray): The training output data.
         y_test (np.ndarray): The test output data.
-
     """
     housing = fetch_california_housing()
     # Split the data into training and test sets:
@@ -34,13 +31,10 @@ def main():
     """
     Run the main program, which trains a linear regression model on the
     California housing data.
-
     Arguments:
         None
-
     Returns:
         None
-
     """
     # Get the data:
     X_train, X_test, y_train, y_test = get_housing_data()
@@ -59,6 +53,3 @@ def main():
 
     # Print the mean squared error:
     print("Mean squared error: {:.2f}".format(mse))
-    
-if __name__ == "__main__":
-   main()
