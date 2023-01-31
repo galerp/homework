@@ -14,7 +14,7 @@ class LinearRegression:
 
     def fit(self, X: np.ndarray, y: np.ndarray) -> None:
         """
-        Linear Regresssion model fitting
+        Linear Regresssion model fitting.
 
         Args:
             X (np.ndarray): Input training data.
@@ -92,7 +92,7 @@ class GradientDescentLinearRegression(LinearRegression):
         self, X: np.ndarray, y: np.ndarray, lr: float = 0.01, epochs: int = 1000
     ) -> None:
         """
-        Gradient descent fitting of weights.
+        Gradient descent fitting of the weights.
 
         Args:
             X (np.ndarray): _description_
