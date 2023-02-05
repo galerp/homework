@@ -2,13 +2,13 @@
     "assignment_name": "MLP",
     "contributors": [
         {
-            "name": "Jordan Matelsky",
-            "pennkey": "matelsky"
+            "name": "Peter Galer",
+            "pennkey": "galerp"
         }
     ],
     "sources": [
-        "https://example.com",
-        "Conversations with TA (include TA's name)",
-        "LLM (include information about the LLM and how it was used)"
+        "CIS_522_W3D1_Tutorial_–_Student_Version.ipynb",
+        "CIS_522_W3D2_Tutorial_–_Student_Version.ipynb",
+        "Video reviewing weight initialization: https://www.youtube.com/watch?v=xWQ-p_o0Uik"
     ]
 }
