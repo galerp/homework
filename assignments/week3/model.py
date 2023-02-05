@@ -41,7 +41,8 @@ class MLP(torch.nn.Module):
         self.out = torch.nn.Linear(num_inputs, num_classes)
         self._initialize_weights()
 
-    def _initialize_weights(self):
+    def _initialize_weights(self) -> None:
+        """_Initilizes weights of layes"""
         for m in self.layers:
             self.initializer(m.weight)
             # torch.nn.init.ones_(m.weight)
