@@ -4,6 +4,10 @@ import torch.nn
 
 
 class MLP(torch.nn.Module):
+    """
+    MLP model using pytorch.
+    """
+
     def __init__(
         self,
         input_size: int,
@@ -36,34 +40,37 @@ class MLP(torch.nn.Module):
             self.layers += [torch.nn.Linear(input_size, i)]
             num_inputs = i
 
-        # self.ln1 = torch.nn.Linear(input_size, hidden_size)
-        # self.ln2 = torch.nn.Linear(hidden_size, hidden_size)
         self.out = torch.nn.Linear(num_inputs, num_classes)
         self._initialize_weights()
 
     def _initialize_weights(self) -> None:
-        """_Initilizes weights of layes"""
+        """
+        Initilizes weights of layers
+        Arguments:
+            None
+
+        Returns:
+            None
+        """
         for m in self.layers:
             self.initializer(m.weight)
-            # torch.nn.init.ones_(m.weight)
 
-    def forward(self, x):
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
         Forward pass of the network.
 
         Arguments:
-            x: The input data.
+            x (torch.Tensor): The input layers
 
         Returns:
-            The output of the network.
+            x (torch.Tensor): The output of the network.
         """
-        # x_f = torch.flatten(x, 1)
-        # x = x.view(x.shape[0], -1)
-        # x = self.out(x)
+
         x = x.view(x.shape[0], -1)
-        # actv = self.activation
+
         for layer in self.layers:
             x = self.activation(layer(x))
+
         x = self.out(x)
 
         return x
