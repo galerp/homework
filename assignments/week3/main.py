@@ -107,9 +107,6 @@ def train(
             loss.backward()
             # Update the parameters:
             optimizer.step()
-            for layer in model.children():
-                if isinstance(layer, torch.nn.Linear):
-                    print(layer.state_dict())
         # Set the model to evaluation mode:
         model.eval()
 
