@@ -36,9 +36,7 @@ class MLP(torch.nn.Module):
         self.layers = torch.nn.ModuleList()
 
         self.layers += [torch.nn.Linear(input_size, hidden_size)]
-        self.layers[0].weight = self.initializer(
-            self.layers[0].weight, gain=1.41421356237
-        )
+        self.layers[0].weight = self.initializer(self.layers[0].weight)
 
         for i in range(1, 1 + hidden_count):
             self.layers += [torch.nn.Linear(hidden_size, hidden_size)]
