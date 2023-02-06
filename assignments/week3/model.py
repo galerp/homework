@@ -28,7 +28,6 @@ class MLP(torch.nn.Module):
             initializer: The initializer to use for the weights.
         """
         super(MLP, self).__init__()
-
         self.input_size = input_size
         self.num_classes = num_classes
         self.activation = activation()
