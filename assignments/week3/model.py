@@ -35,16 +35,16 @@ class MLP(torch.nn.Module):
         self.initializer = initializer
         self.layers = torch.nn.ModuleList()
 
-        self.layers += [torch.nn.Linear(input_size, hidden_count)]
+        self.layers += [torch.nn.Linear(input_size, hidden_size)]
         # self.layers[0].weight=self.initializer(self.layers[0].weight, gain = 1.41421356237)
 
         for i in range(1, 1 + hidden_count):
-            self.layers += [torch.nn.Linear(hidden_count, hidden_count)]
+            self.layers += [torch.nn.Linear(hidden_size, hidden_size)]
             self.layers[i].weight = self.initializer(
                 self.layers[i].weight, gain=1.41421356237
             )
 
-        self.out = torch.nn.Linear(hidden_count, num_classes)
+        self.out = torch.nn.Linear(hidden_size, num_classes)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
