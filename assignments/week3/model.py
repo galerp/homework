@@ -28,21 +28,17 @@ class MLP(torch.nn.Module):
             initializer: The initializer to use for the weights.
         """
         super(MLP, self).__init__()
-        self.input_size = input_size
-        self.num_classes = num_classes
         self.activation = activation()
-        self.hidden_count = hidden_count
-        self.initializer = initializer
         self.layers = torch.nn.ModuleList()
 
-        self.layers += [torch.nn.Linear(input_size, hidden_size)]
-        self.layers[0].weight = self.initializer(self.layers[0].weight)
+        self.layers += [torch.nn.Linear(input_size, hidden_size + 3)]
+        self.layers[0].weight = initializer(self.layers[0].weight)
 
         for i in range(1, 1 + hidden_count):
-            self.layers += [torch.nn.Linear(hidden_size, hidden_size)]
-            self.layers[i].weight = self.initializer(self.layers[i].weight)
+            self.layers += [torch.nn.Linear(hidden_size + 3, hidden_size + 3)]
+            self.layers[i].weight = initializer(self.layers[i].weight)
 
-        self.out = torch.nn.Linear(hidden_size, num_classes)
+        self.out = torch.nn.Linear(hidden_size + 3, num_classes)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
@@ -52,7 +48,7 @@ class MLP(torch.nn.Module):
             x (torch.Tensor): The input layers
 
         Returns:
-            x (torch.Tensor): The output of the network.
+            x (torch.Tensor): The feed foward output of the network.
         """
 
         x = x.view(x.shape[0], -1)
