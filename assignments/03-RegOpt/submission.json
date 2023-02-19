@@ -4,9 +4,13 @@
         {
             "name": "Peter Galer",
             "pennkey": "galerp"
+        },
+        {
+            "name" : "Akash Pattnaik",
+            "pennkey" : "pattnaik"
         }
     ],
     "sources": [
-        "Don't forget to list your sources/attribution here!"
+        "https://www.d2l.ai/chapter_optimization/lr-scheduler.html"
     ]
 }
