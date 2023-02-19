@@ -11,8 +11,6 @@ class CONFIG:
     num_epochs = 15
     initial_learning_rate = 0.001
     initial_weight_decay = 0.01
-    # lambda1 = lambda epoch: (1 - (epoch / 2)) ** 1.0
-    # lr_lambda = [lambda1]
 
     lrs_kwargs = {
         "initial_weight_decay": initial_weight_decay,
