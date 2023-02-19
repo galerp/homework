@@ -12,13 +12,7 @@ class CONFIG:
     initial_learning_rate = 0.001
     initial_weight_decay = 0.01
 
-    lrs_kwargs = {
-        "initial_weight_decay": initial_weight_decay,
-        "epochs": num_epochs,
-        "batch_size": batch_size,
-        "lr_lambda_l": [lambda epoch: (1 - (epoch / 2)) ** 1.0],
-        "initial_learning_rate": initial_learning_rate
-    }
+    lrs_kwargs = {}
 
     optimizer_factory: Callable[
         [nn.Module], torch.optim.Optimizer

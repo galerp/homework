@@ -3,7 +3,7 @@ from torch.optim.lr_scheduler import _LRScheduler
 
 
 class CustomLRScheduler(_LRScheduler):
-    def __init__(self, optimizer, last_epoch=-1, gamma=0.1, **kwargs):
+    def __init__(self, optimizer, last_epoch=-1, **kwargs):
         """
         Create a new scheduler.
 
@@ -11,12 +11,10 @@ class CustomLRScheduler(_LRScheduler):
         if you need to add new parameters.
 
         """
-        lr_lambda = kwargs.get("lr_lambda_l")
-        self.lr_lambda = lr_lambda
         self.last_epoch = last_epoch
         self.optimizer = optimizer
         self._step_count = 0
-        self.lr_lambdas = lr_lambda[0]
+        self.lr_lambdas = lambda epoch: (1 - (epoch / 2)) ** 1.0
 
         super(CustomLRScheduler, self).__init__(optimizer, last_epoch)
 
