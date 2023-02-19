@@ -17,7 +17,7 @@ class CONFIG:
         "epochs": num_epochs,
         "batch_size": batch_size,
         "lr_lambda_l": [lambda epoch: (1 - (epoch / 2)) ** 1.0],
-        "initial_learning_rate": initial_learning_rate,
+        "initial_learning_rate": initial_learning_rate
     }
 
     optimizer_factory: Callable[
