@@ -19,7 +19,7 @@ class CustomLRScheduler(_LRScheduler):
         super(CustomLRScheduler, self).__init__(optimizer, last_epoch)
 
     def step(self, epoch=None):
-        """Step counting for each epoch
+        """Step counting for each epoch.
 
         Arguments:
             epoch (integer): number of epochs. Defaults to None.
@@ -27,14 +27,11 @@ class CustomLRScheduler(_LRScheduler):
         self._step_count += 1
 
     def get_lr(self) -> List[float]:
-        # Note to students: You CANNOT change the arguments or return type of
-        # this function (because it is called internally by Torch)
+        """Sets learning rate.
 
-        # Here's our dumb baseline implementation:
-        # if self.last_epoch not in self.milestones:
-        #     return [group['lr'] for group in self.optimizer.param_groups]
-        # return [group['lr'] * self.gamma ** self.milestones[self.last_epoch]
-        #         for group in self.optimizer.param_groups]
+        Returns:
+            List[float]: Learning rate.
+        """
         if self._step_count > 0:
             return [
                 param_group["lr"] * self.lr_lambdas(self._step_count)
