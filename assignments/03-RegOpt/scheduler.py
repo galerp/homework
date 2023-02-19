@@ -4,12 +4,11 @@ from torch.optim.lr_scheduler import _LRScheduler
 
 class CustomLRScheduler(_LRScheduler):
     def __init__(self, optimizer, last_epoch=-1, **kwargs):
-        """
-        Create a new scheduler.
+        """Initialize custom scheduler.
 
-        Note to students: You can change the arguments to this constructor,
-        if you need to add new parameters.
-
+        Args:
+            optimizer (function): Opimizer employed.
+            last_epoch (int): Last epoch. Defaults to -1.
         """
         self.last_epoch = last_epoch
         self.optimizer = optimizer
