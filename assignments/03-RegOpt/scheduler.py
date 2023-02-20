@@ -3,8 +3,14 @@ from torch.optim.lr_scheduler import _LRScheduler
 
 
 class CustomLRScheduler(_LRScheduler):
+    """
+    This is a custom scheduler for training of a CNN.
+    This is a wrapper around the PyTorch _LRScheduler class.
+    """
+
     def __init__(self, optimizer, last_epoch=-1, **kwargs):
-        """Initialize custom scheduler.
+        """
+        Initialize custom scheduler.
 
         Args:
             optimizer (function): Opimizer employed.
@@ -17,12 +23,15 @@ class CustomLRScheduler(_LRScheduler):
 
         super(CustomLRScheduler, self).__init__(optimizer, last_epoch)
 
-    def step(self):
-        """Step counting for each epoch."""
+    def step(self) -> None:
+        """
+        Step counting for each epoch.
+        """
         self._step_count += 1
 
     def get_lr(self) -> List[float]:
-        """Sets learning rate.
+        """
+        Sets learning rate.
 
         Returns:
             List[float]: Learning rate.
