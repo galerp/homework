@@ -17,12 +17,8 @@ class CustomLRScheduler(_LRScheduler):
 
         super(CustomLRScheduler, self).__init__(optimizer, last_epoch)
 
-    def step(self) -> None:
-        """Step counting for each epoch.
-
-        Arguments:
-            epoch (integer): number of epochs. Defaults to None.
-        """
+    def step(self):
+        """Step counting for each epoch."""
         self._step_count += 1
 
     def get_lr(self) -> List[float]:
