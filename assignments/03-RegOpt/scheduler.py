@@ -19,7 +19,7 @@ class CustomLRScheduler(_LRScheduler):
         self.last_epoch = last_epoch
         self.optimizer = optimizer
         self._step_count = 0
-        self.lr_lambdas = lambda epoch: (1 - (epoch / 2)) ** 1.0
+        self.lr_lambdas = lambda epoch: (1 - (epoch / 2)) ** 0.9
 
         super(CustomLRScheduler, self).__init__(optimizer, last_epoch)
 
