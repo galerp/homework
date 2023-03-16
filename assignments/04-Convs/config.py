@@ -13,7 +13,6 @@ class CONFIG:
         [nn.Module], torch.optim.Optimizer
     ] = lambda model: torch.optim.Adam(model.parameters(), lr=1e-3)
 
-    # for nomalization parameters: https://stackoverflow.com/questions/69747119/pytorch-cifar10-images-are-not-normalized
     transforms = Compose(
         [ToTensor(), Normalize((0.4914, 0.4822, 0.4465), (0.2470, 0.2435, 0.2616))]
     )
