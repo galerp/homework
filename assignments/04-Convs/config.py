@@ -6,13 +6,13 @@ from torchvision.transforms import Compose, ToTensor, Normalize
 
 
 class CONFIG:
-    batch_size = 61
-    num_epochs = 2
+    batch_size = 40
+    num_epochs = 1
 
     optimizer_factory: Callable[
         [nn.Module], torch.optim.Optimizer
     ] = lambda model: torch.optim.Adam(
-        model.parameters(), lr=5.0e-3, weight_decay=0.001
+        model.parameters(), lr=5.5e-3, weight_decay=0.001
     )
 
     transforms = Compose(

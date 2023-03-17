@@ -34,11 +34,11 @@ class Model(torch.nn.Module):
             dilation=1,
             groups=num_channels,
         )
-        self.fc1 = nn.Linear(num_channels * 6 * 6 * 6, 182)
+        self.fc1 = nn.Linear(num_channels * 6 * 6 * 6, 184)
         nn.init.kaiming_normal_(self.fc1.weight)
         # self.fc2 = nn.Linear(88, 55)
         # nn.init.kaiming_normal_(self.fc2.weight)
-        self.fc3 = nn.Linear(182, num_classes)
+        self.fc3 = nn.Linear(184, num_classes)
         nn.init.kaiming_normal_(self.fc3.weight)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
