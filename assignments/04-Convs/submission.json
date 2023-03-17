@@ -12,6 +12,7 @@
     ],
     "sources": [
         "https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html",
-        "https://stackoverflow.com/questions/69747119/pytorch-cifar10-images-are-not-normalized"
+        "https://stackoverflow.com/questions/69747119/pytorch-cifar10-images-are-not-normalized",
+        "ChatGPT3"
     ]
 }
